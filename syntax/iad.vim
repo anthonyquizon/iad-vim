@@ -23,6 +23,7 @@ syntax match iadDefine "define\(-\w*\)\?"
 syntax keyword iadCommentTodo contained FIXME TODO FIXME: TODO:
 
 syntax match iadComment ";.*$" contains=iadCommentTodo,@Spell
+syntax match iadLang "#lang.*$"
 syntax match iadStringEscape "\v\\%([\\btnfr"]|u\x{4}|[0-3]\o{2}|\o{1,2})" contained
 
 syntax cluster iadTop contains=@Spell,iadCharacter,iadSpecial,iadComment,iadMap,iadNumber,iadSexp,iadString,iadVector
@@ -50,15 +51,13 @@ highlight default link iadString			String
 highlight default link iadStringEscape		Character
 
 highlight default link iadComment			Comment
-highlight default link iadCommentTodo		Todo
+highlight default link iadLang			  Comment
+highlight default link iadCommentTodo	Todo
 highlight default link iadString			String
 
-highlight default link iadDefine			Define
+highlight default link iadDefine		Define
 highlight default link iadForms			Define
 highlight default link iadKeys			Special
 highlight default link iadBoolean		Boolean
-
-"TODO map keys
-
 
 let b:current_syntax = "iad"
